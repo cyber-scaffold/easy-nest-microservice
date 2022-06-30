@@ -2,7 +2,7 @@ import * as moment from "moment";
 import * as jwt from "jsonwebtoken";
 import { Inject, Injectable, CACHE_MANAGER } from "@nestjs/common";
 
-import { jwt_secret } from "@/configs/jwt_config";
+import config from "@/configs";
 
 @Injectable()
 export class AuthService {
@@ -25,7 +25,7 @@ export class AuthService {
     const login_time = moment().format("YYYY-MM-DD HH:mm:ss");
     const jwt_string = await jwt.sign(
       { user_id: user_info.user_id, username },
-      jwt_secret,
+      config.jwt_secret,
       { expiresIn: "1 days" },
     );
     await this.set(username, { login_time, ...user_info });
@@ -34,7 +34,7 @@ export class AuthService {
 
   /** 根据token令牌获取用户详情 **/
   async getAutoInfoByToken(api_token) {
-    const auth_info = await jwt.verify(api_token, jwt_secret);
+    const auth_info = await jwt.verify(api_token, config.jwt_secret);
     return auth_info;
   }
 }

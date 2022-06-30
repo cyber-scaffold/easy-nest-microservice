@@ -1,6 +1,5 @@
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Module, CacheModule } from "@nestjs/common";
-import * as redisStore from "cache-manager-redis-store";
 
 import { AppController } from "@/app.controller";
 import { UserController } from "@/modules/version1/user.controller";
@@ -8,15 +7,11 @@ import { UserController } from "@/modules/version1/user.controller";
 import { UserAccountEntity } from "@/providers/user_account_entity.providers";
 
 import { AuthService } from "@/services/version1/auth.service";
+import config from "@/configs/";
 
 @Module({
   imports: [
-    CacheModule.register({
-      store: redisStore,
-      host: "localhost",
-      port: 6379,
-      ttl: 60 * 60 * 1000,
-    }),
+    CacheModule.register(config.cache_module_config),
     TypeOrmModule.forRoot({
       port: 3306,
       type: "mysql",
