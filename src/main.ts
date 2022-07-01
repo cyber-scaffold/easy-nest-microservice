@@ -18,7 +18,7 @@ async function bootstrapHttpServer() {
 /** 创建tcp接口服务 **/
 async function bootstrapMicroservice() {
   const app = await NestFactory.createMicroservice(AppModule, {
-    options: { port: 5050 },
+    options: { host: "0.0.0.0", port: 5050 },
   });
   await app.useGlobalGuards(new UserGuard());
   await app.useGlobalFilters(new ErrorExceptionFilter());

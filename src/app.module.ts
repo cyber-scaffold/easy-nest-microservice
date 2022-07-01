@@ -12,15 +12,7 @@ import config from "@/configs/";
 @Module({
   imports: [
     CacheModule.register(config.cache_module_config),
-    TypeOrmModule.forRoot({
-      port: 3306,
-      type: "mysql",
-      host: "localhost",
-      username: "root",
-      password: "",
-      entities: [],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(config.mysql_module_config),
     TypeOrmModule.forFeature([UserAccountEntity]),
   ],
   controllers: [AppController, UserController],
