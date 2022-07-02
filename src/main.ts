@@ -22,7 +22,6 @@ async function bootstrapMicroservice() {
   });
   await app.useGlobalGuards(new UserGuard());
   await app.useGlobalFilters(new ErrorExceptionFilter());
-  await app.useGlobalInterceptors(new ResponseInterceptor());
   await app.listen();
 }
 
