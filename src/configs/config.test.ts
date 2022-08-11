@@ -17,3 +17,30 @@ export const mysql_module_config: TypeOrmModuleOptions = {
   entities: [],
   synchronize: true,
 };
+
+// export const mysql_module_config: TypeOrmModuleOptions = {
+//   port: 13306,
+//   type: "mysql",
+//   logging: true,
+//   synchronize: true,
+//   replication: {
+//     master: {
+//       host: "localhost",
+//       port: 13306,
+//       username: "root",
+//       password: "123456",
+//     },
+//     slaves: [
+//       {
+//         host: "localhost",
+//         port: 23306,
+//         username: "root",
+//         password: "123456",
+//       },
+//     ],
+//     canRetry: true,
+//     removeNodeErrorCount: 5,
+//     restoreNodeTimeout: 0,
+//     selector: "RR",
+//   },
+// };
