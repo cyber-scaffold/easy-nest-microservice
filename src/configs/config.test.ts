@@ -25,14 +25,14 @@ export const mysql_module_config: TypeOrmModuleOptions = {
 //   synchronize: true,
 //   replication: {
 //     master: {
-//       host: "localhost",
+//       host: "host.docker.internal",
 //       port: 13306,
 //       username: "root",
 //       password: "123456",
 //     },
 //     slaves: [
 //       {
-//         host: "localhost",
+//         host: "host.docker.internal",
 //         port: 23306,
 //         username: "root",
 //         password: "123456",
