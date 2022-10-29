@@ -7,4 +7,4 @@ IMAGE_NAME="example-service-prod";
 
 npm run build;
 docker rmi $IMAGE_NAME --force;
-docker build --rm -f dockerfile.test -t $IMAGE_NAME .;
+docker build --rm -f dockerfile.prod -t $IMAGE_NAME .;
